@@ -1,0 +1,55 @@
+.slider_dot_item {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.slider_dot_item:hover {
+    background-color: #aaa;
+}
+
+.cats_img {
+    width: 300px;
+}
+
+.card_cat {
+    width: 400px;
+    height: 400px;
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.button_cat {
+    display: flex;
+
+}
+
+.previous-slide {
+    margin-right: 100px;
+}
+
+.dot_slider_1 {
+    position: absolute;
+    top: 350px;
+    left: 120px;
+}
+
+.account_cat {
+    font-size: 20px;
+    color: white;
+}
+
+.account {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}

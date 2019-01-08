@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My slayder</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const catImages = [
+              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495636.svg",
+              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495625.svg",
+              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495622.svg",
+              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495619.svg",
+              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495616.svg",
+              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495613.svg",
+              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495592.svg",
+              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495579.svg",
+              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/336916.svg"
+          ];
+
+
+          function Slider({root, images}) {
+
+              let currentSlide = 0;
+              root.innerHTML = `
+                  <div class="card_cat">
+                  <div class="button_cat">
+                  <button class="previous-slide">Prev</button>
+                  <button class="next-slide">Next</button>
+                  </div>
+                  <img src="https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495636.svg"
+             alt="cat" class="cats_img">
+             </div>
+                  `
+
+
+              this.nextSlide = () => {
+                  if (currentSlide === catImages.length - 1) {
+                      currentSlide = 0;
+                  } else {
+                      currentSlide++;
+                  }
+
+              };
+
+              this.prevSlide = () => {
+                  if (currentSlide === 0) {
+                      currentSlide = catImages.length - 1;
+                  } else {
+                      currentSlide--;
+                  }
+              };
+              root.addEventListener('click', (e) => {
+
+                  if (e.target.matches('.previous-slide')) {
+                      this.prevSlide();
+                      updateSlide();
+                  }
+
+                  if (e.target.matches('.next-slide')) {
+                      this.nextSlide();
+                      updateSlide();
+                  }
+
+              });
+              this.goToSlide = (slideNumber) => {
+                  currentSlide = slideNumber;
+                  updateSlide();
+              };
+
+              function updateSlide() {
+                  root.querySelector('img').src = images[currentSlide];
+
+                  document.getElementById("page").innerText = `${currentSlide + 1}/${catImages.length}`;
+              }
+          }
+
+          window.slider = new Slider({
+              images: catImages,
+              root: document.querySelector('#slider-1')
+          });
+          window.slider2 = new Slider({
+              images: catImages,
+              root: document.querySelector('#slider-2')
+          });
+
+      })
+
+
+  </script>
+</head>
+<body>
+<div id="slider-1"></div>
+<hr/>
+<div id="slider-2"></div>
+
+<div class="dot_slider_1">
+  <span class="slider_dot_item" onclick="slider.goToSlide(0)"></span>
+  <span class="slider_dot_item" onclick="slider.goToSlide(1)"></span>
+  <span class="slider_dot_item" onclick="slider.goToSlide(2)"></span>
+  <span class="slider_dot_item" onclick="slider.goToSlide(3)"></span>
+  <span class="slider_dot_item" onclick="slider.goToSlide(4)"></span>
+  <span class="slider_dot_item" onclick="slider.goToSlide(5)"></span>
+  <span class="slider_dot_item" onclick="slider.goToSlide(6)"></span>
+  <span class="slider_dot_item" onclick="slider.goToSlide(7)"></span>
+  <span class="slider_dot_item" onclick="slider.goToSlide(8)"></span>
+
+</div>
+<div class="account">
+  <p id="page" class="account_cat">1/9</p>
+</div>
+
+
+</body>
+
