@@ -9,3 +9,5 @@ This project is an example project realizing slider.
 - js
 ## How to run?
 1. Run this command: ```git clone https://github.com/oksanarutska/cat-library.git```
+## Result
+![Image slider](https://github.com/oksanarutska/js-slider/blob/master/slider%20result.png)
